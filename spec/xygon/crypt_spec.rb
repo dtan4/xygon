@@ -39,7 +39,7 @@ module Xygon
       end
 
       it "should return the same to crypt file" do
-        open(encrypted).read.force_encoding("ascii-8bit").strip.should == open(cryptfile).read.force_encoding("ascii-8bit").strip
+        read_with_ascii(encrypted).should == read_with_ascii(cryptfile)
       end
 
       after do
@@ -48,7 +48,7 @@ module Xygon
     end
 
     let(:raw_str) { "hogehoge" }
-    let(:encrypted_str) { open(File.expand_path("../fixtures/encrypted_str", __dir__)).read.force_encoding("ascii-8bit").strip }
+    let(:encrypted_str) { read_with_ascii(File.expand_path("../fixtures/encrypted_str", __dir__)) }
 
     describe "#decrypt_aes256" do
       it "should decrypt the AES-256 encrypted string" do
