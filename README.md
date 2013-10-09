@@ -1,6 +1,8 @@
 # Xygon
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/dtan4/xygon.png?branch=master)](https://travis-ci.org/dtan4/xygon)
+
+Simple Password Manager
 
 ## Installation
 
