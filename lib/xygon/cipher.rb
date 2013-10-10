@@ -4,8 +4,8 @@ require 'digest'
 module Xygon
   class Cipher
     def self.decrypt_file(encrypted_file, raw_file, pass)
-      once = decrypt_aes256(open(encrypted_file).read, pass)
-      decrypted = decrypt_aes256(once, pass.reverse)
+      once = decrypt_aes256(open(encrypted_file, "rb").read.strip, pass.reverse)
+      decrypted = decrypt_aes256(once, pass)
       open(raw_file, "w") { |f| f.puts decrypted }
     end
 

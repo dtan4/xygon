@@ -11,7 +11,6 @@ module Xygon
 
     describe "#decrypt_file" do
       before do
-        pending "_encrypted file is invalid now"
         Xygon::Cipher.decrypt_file(encrypted, _decrypted, pass)
       end
 
@@ -30,7 +29,6 @@ module Xygon
 
     describe "#encrypt_file" do
       before do
-        pending "encrypted file is invalid now"
         Xygon::Cipher.encrypt_file(raw, _encrypted, pass)
       end
 
