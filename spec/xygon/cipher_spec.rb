@@ -59,5 +59,14 @@ module Xygon
         Xygon::Cipher.encrypt_aes256(raw_str, pass).should == encrypted_str
       end
     end
+
+    let(:password) { "password" }
+    let(:password_digest) { "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" }
+
+    describe "#get_sha256" do
+      it "should generate SHA256 digest" do
+        Xygon::Cipher.get_sha256(password).should == password_digest
+      end
+    end
   end
 end

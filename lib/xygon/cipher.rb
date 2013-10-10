@@ -28,5 +28,9 @@ module Xygon
       enc.key = Digest::SHA256.digest(pass)
       enc.update(text) + enc.final
     end
+
+    def self.get_sha256(text)
+      Digest::SHA256.hexdigest(text)
+    end
   end
 end
