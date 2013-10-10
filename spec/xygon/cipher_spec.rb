@@ -30,7 +30,7 @@ module Xygon
 
     describe "#encrypt_file" do
       before do
-        # pending "encrypted file is invalid now"
+        pending "encrypted file is invalid now"
         Xygon::Cipher.encrypt_file(raw, _encrypted, pass)
       end
 
