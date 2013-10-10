@@ -1,5 +1,5 @@
 require "xygon/version"
-require "xygon/crypt"
+require "xygon/cipher"
 
 module Xygon
   # Your code goes here...
