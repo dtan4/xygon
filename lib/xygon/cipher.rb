@@ -32,5 +32,9 @@ module Xygon
     def self.get_sha256(text)
       Digest::SHA256.hexdigest(text)
     end
+
+    def self.digest_match?(raw, digest)
+      get_sha256(raw) == digest
+    end
   end
 end

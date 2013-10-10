@@ -61,11 +61,31 @@ module Xygon
     end
 
     let(:password) { "password" }
+    let(:invalid_password) { password + "aaa" }
     let(:password_digest) { "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" }
 
     describe "#get_sha256" do
       it "should generate SHA256 digest" do
         Xygon::Cipher.get_sha256(password).should == password_digest
+      end
+    end
+
+    describe "#digest_match?" do
+      it "should call #get_sha256" do
+        Xygon::Cipher.should_receive(:get_sha256)
+        Xygon::Cipher.digest_match?(pass, password_digest)
+      end
+
+      context "with valid password" do
+        it "should return true" do
+          Xygon::Cipher.digest_match?(password, password_digest).should be_true
+        end
+      end
+
+      context "with invalid password" do
+        it "should return false" do
+          Xygon::Cipher.digest_match?(invalid_password, password_digest).should be_false
+        end
       end
     end
   end
